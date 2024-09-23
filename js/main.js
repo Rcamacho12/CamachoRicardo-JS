@@ -12,7 +12,7 @@ const productos = [
 
 const contenedorProductos = document.getElementById('contenedorProductos');
 const botonCarrito = document.getElementById('botonCarrito');
-
+const productosEnCarrito = [];
 function cargarProductos() {
 
     contenedorProductos.innerHTML = "";
@@ -29,7 +29,7 @@ console.log()
                         <div  class="card-body">
                             <h5 class="card-title">${producto.nombre}</h5>
                             <p class="card-text">$${producto.precio}.</p>
-                            <a href="#" id="botonCarrito" class="btn btn-primary">Agregar al carrito</a>
+                            <a href="#" id="botonCarrito"class="btn btn-primary">Agregar al carrito</a>
                         </div>
                     </div>
                 </div>
@@ -43,18 +43,20 @@ console.log()
 cargarProductos();
 
 function actualizarBotonesAgregar() {
-    botonesAgregar = document.getElementById("botonCarrito");
+    // Selecciona todos los botones que tienen el id 'botonCarrito'
+    const botonesAgregar = document.querySelectorAll('#botonCarrito');
 
     botonesAgregar.forEach(boton => {
-        boton.addEventlistener("click", agregarAlCarrito);
+        boton.addEventListener('click', (e) => {
+            e.preventDefault();
+            const card = boton.closest('.card');  
+            const nombreProducto = card.querySelector('.card-title').textContent; 
+            const producto = productos.find(prod => prod.nombre === nombreProducto); 
+            if (producto) {
+                console.log("Producto agregado al carrito:", producto);
+                // Aquí podrías agregar el producto al carrito
+            }
+        });
     });
-}
-
-const productosEnCarrito = [];
-
-function agregarAlCarrito() {
-    const id = e.currenTarget.id;
-    console.log(id)
-
 }
 
