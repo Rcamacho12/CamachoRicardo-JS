@@ -18,7 +18,7 @@ function cargarProductos() {
     contenedorProductos.innerHTML = "";
 
     productos.forEach(producto => {
-console.log()
+
         const div = document.createElement("div");
 
         div.innerHTML = `
@@ -52,9 +52,18 @@ function actualizarBotonesAgregar() {
             const nombreProducto = card.querySelector('.card-title').textContent; 
             const producto = productos.find(prod => prod.nombre === nombreProducto); 
             if (producto) {
-                console.log("Producto agregado al carrito:", producto);
+                agregarAlCarrito(producto);
             }
         });
     });
+}
+function agregarAlCarrito(producto) {
+    productosEnCarrito.push(producto);  // Añadir el producto al array del carrito
+    console.log("Producto agregado al carrito:", producto);
+    console.log("Carrito actual:", productosEnCarrito);
+
+    // Guardar el carrito en localStorage como JSON
+    localStorage.setItem('carrito', JSON.stringify(productosEnCarrito));  // Convertir a JSON y almacenar
+    console.log("Carrito guardado en localStorage.")
 }
 
