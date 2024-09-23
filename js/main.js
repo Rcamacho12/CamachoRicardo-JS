@@ -39,11 +39,10 @@ console.log()
     actualizarBotonesAgregar();
 }
 
-// Llamamos a la función para cargar los productos
 cargarProductos();
 
 function actualizarBotonesAgregar() {
-    // Selecciona todos los botones que tienen el id 'botonCarrito'
+    
     const botonesAgregar = document.querySelectorAll('#botonCarrito');
 
     botonesAgregar.forEach(boton => {
@@ -54,7 +53,6 @@ function actualizarBotonesAgregar() {
             const producto = productos.find(prod => prod.nombre === nombreProducto); 
             if (producto) {
                 console.log("Producto agregado al carrito:", producto);
-                // Aquí podrías agregar el producto al carrito
             }
         });
     });
