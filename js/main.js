@@ -1,7 +1,7 @@
 // Cargar los productos desde el archivo JSON utilizando async/await
 async function cargarProductos() {
     try {
-        const response = await fetch('../Json/productos.json');
+        const response = await fetch('./Json/productos.json');
         const productos = await response.json();
 
         // Validación de programación defensiva
