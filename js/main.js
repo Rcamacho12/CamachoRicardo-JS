@@ -1,69 +1,64 @@
+let productos = [];  // Definir productos como una variable global
 
-const productos = [
-    { id: 1, nombre: "cuaderno tapa blanda", precio: 12950, imagen: "./assets/img/cuadernoTapaDura.webp" },
-    { id: 2, nombre: "cuaderno ejecutivo", precio: 13400, imagen: "./assets/img/cuadernoexecutive.webp"},
-    { id: 3, nombre: "cuaderno Univercitario", precio: 18000, imagen: "./assets/img/cuadernoUniversitario1.webp"},
-    { id: 4, nombre: "cuaderno tapa flexible", precio: 3750, imagen: "./assets/img/cuadernoTapaFlexible.webp"},
-    { id: 5, nombre: "cuaderno tapa plastica", precio: 7500, imagen: "./assets/img/cuadernoTapaPlastica.webp"},
-    { id: 6, nombre: "cuaderno escolar", precio: 3750, imagen: "./assets/img/cuadernoEscolar.webp"},
-    { id: 7, nombre: "cuaderno escolar con lunares", precio: 3750, imagen: "./assets/img/cuadernoLunares.jpg"},
-    { id: 8, nombre: "cuaderno ecologico" , precio: 7250, imagen: "./assets/img/cuadernoEcologico.webp"}
-];
+// Fetch para cargar el archivo JSON
+fetch('../Json/productos.json')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Error al cargar el archivo JSON");
+        }
+        return response.json();
+    })
+    .then(data => {
+        productos = data;  // Guardar productos en la variable global
+        cargarProductos(productos);  // Llamar a cargarProductos con los datos del JSON
+    })
+    
 
-const contenedorProductos = document.getElementById('contenedorProductos');
-const botonCarrito = document.getElementById('botonCarrito');
-const productosEnCarrito = [];
-function cargarProductos() {
-
-    contenedorProductos.innerHTML = "";
+function cargarProductos(productos) {
+    const contenedorProductos = document.getElementById('contenedorProductos');
+    contenedorProductos.innerHTML = ""; // Limpiar el contenedor
 
     productos.forEach(producto => {
-
         const div = document.createElement("div");
+        div.classList.add("col-md-3", "mb-3");  // Asegúrate de que tenga clases de Bootstrap
 
         div.innerHTML = `
-
-                <div  class="col-md-3 mb-3">
-                    <div class="card" style="width: 14rem">
-                        <img src=${producto.imagen} class="card-img-top" alt="${producto.nombre}">
-                        <div  class="card-body">
-                            <h5 class="card-title">${producto.nombre}</h5>
-                            <p class="card-text">$${producto.precio}.</p>
-                            <a href="#" id="botonCarrito"class="btn btn-primary">Agregar al carrito</a>
-                        </div>
-                    </div>
+            <div class="card" style="width: 14rem">
+                <img src="${producto.imagen}" class="card-img-top" alt="${producto.nombre}">
+                <div class="card-body">
+                    <h5 class="card-title">${producto.nombre}</h5>
+                    <p class="card-text">$${producto.precio}.</p>
+                    <a href="#" class="btn btn-primary" data-id="${producto.id}">Agregar al carrito</a>
                 </div>
+            </div>
         `;
+        
         contenedorProductos.append(div);
-    })
+    });
+
     actualizarBotonesAgregar();
 }
 
-cargarProductos();
-
 function actualizarBotonesAgregar() {
-    
-    const botonesAgregar = document.querySelectorAll('#botonCarrito');
+    const botonesAgregar = document.querySelectorAll('.btn-primary');
 
     botonesAgregar.forEach(boton => {
         boton.addEventListener('click', (e) => {
             e.preventDefault();
-            const card = boton.closest('.card');  
-            const nombreProducto = card.querySelector('.card-title').textContent; 
-            const producto = productos.find(prod => prod.nombre === nombreProducto); 
+            const idProducto = parseInt(boton.getAttribute('data-id')); // Usamos el data-id
+            const producto = productos.find(prod => prod.id === idProducto);  // Usamos la variable global productos
             if (producto) {
                 agregarAlCarrito(producto);
             }
         });
     });
 }
+
 function agregarAlCarrito(producto) {
-    productosEnCarrito.push(producto);  // Añadir el producto al array del carrito
-    console.log("Producto agregado al carrito:", producto);
-    console.log("Carrito actual:", productosEnCarrito);
+    const productosEnCarrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    productosEnCarrito.push(producto);
+    
 
-    // Guardar el carrito en localStorage como JSON
-    localStorage.setItem('carrito', JSON.stringify(productosEnCarrito));  // Convertir a JSON y almacenar
-    console.log("Carrito guardado en localStorage.")
+    localStorage.setItem('carrito', JSON.stringify(productosEnCarrito));
+    
 }
-

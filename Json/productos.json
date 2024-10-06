@@ -1,0 +1,146 @@
+[
+    {
+        "id":1,
+        "nombre":"cuaderno tapa blanda",
+        "precio":12950,
+        "imagen":"./assets/img/cuadernoTapaDura.webp"
+    },
+    {
+        "id":2,
+        "nombre":"cuaderno ejecutivo",
+        "precio":13400,
+        "imagen":"./assets/img/cuadernoexecutive.webp"
+    },
+    {
+        "id":3,
+        "nombre":"cuaderno Univercitario",
+        "precio":18000,
+        "imagen":"./assets/img/cuadernoUniversitario1.webp"
+    },
+    {
+        "id":4,
+        "nombre":"cuaderno tapa flexible",
+        "precio":3750,
+        "imagen":"./assets/img/cuadernoTapaFlexible.webp"
+    },
+    {
+        "id":5,
+        "nombre":"cuaderno tapa plastica",
+        "precio":7500,
+        "imagen":"./assets/img/cuadernoTapaPlastica.webp"
+    },
+    {
+        "id":6,
+        "nombre":"cuaderno escolar",
+        "precio":3750,
+        "imagen":"./assets/img/cuadernoEscolar.webp"
+    },
+    {
+        "id":7,
+        "nombre":"cuaderno escolar con lunares",
+        "precio":3750,
+        "imagen":"./assets/img/cuadernoLunares.jpg"
+    },
+    {
+        "id":8,
+        "nombre":"cuaderno ecologico",
+        "precio":7250,
+        "imagen":"./assets/img/cuadernoEcologico.webp"
+    },
+    {
+        "id":9,
+        "nombre":"block dibujo blanco",
+        "precio":3290,
+        "imagen":"./assets/img/blockDibujoBlanco.webp"
+    },
+    {
+        "id":10,
+        "nombre":"block dibujo color",
+        "precio":10900,
+        "imagen":"./assets/img/blockDibujoColor.webp"
+    },
+    {
+        "id":11,
+        "nombre":"block dibujo fluo",
+        "precio":7230,
+        "imagen":"./assets/img/blockDibujoFluo.webp"
+    },
+    {
+        "id":12,
+        "nombre":"block dibujo kawaii",
+        "precio":5790,
+        "imagen":"./assets/img/blockDibujoKawaii.webp"
+    },
+    {
+        "id":13,
+        "nombre":"block dibujo Negro",
+        "precio":3890,
+        "imagen":"./assets/img/blockDibujoNegro.webp"
+    },
+    {
+        "id":14,
+        "nombre":"block dibujo pastel",
+        "precio":5790,
+        "imagen":"./assets/img/blockDibujoPastel.webp"
+    },
+    {
+        "id":15,
+        "nombre":"block dibujo patrio",
+        "precio":5790,
+        "imagen":"./assets/img/blockDibujoPatrio.webp"
+    },
+    {
+        "id":16,
+        "nombre":"block hojas Ecologicas",
+        "precio":3580,
+        "imagen":"./assets/img/blockHojasEcologicas.webp"
+    },
+    {
+        "id":17,
+        "nombre":"boligrafo azul",
+        "precio":890,
+        "imagen":"./assets/img/boligrafoAzul.webp"
+    },
+    {
+        "id":18,
+        "nombre":"boligrafo colores",
+        "precio":9580,
+        "imagen":"./assets/img/boligrafoColores.webp"
+    },
+    {
+        "id":19,
+        "nombre":"boligrafo fino",
+        "precio":970,
+        "imagen":"./assets/img/boligrafoFino.webp"
+    },
+    {
+        "id":20,
+        "nombre":"boligrafo retactril",
+        "precio":3790,
+        "imagen":"./assets/img/boligrafoRetractil1.webp"
+    },
+    {
+        "id":21,
+        "nombre":"boligrafo retractil colores",
+        "precio":4280,
+        "imagen":"./assets/img/boligrafoRetractil.webp"
+    },
+    {
+        "id":22,
+        "nombre":"lapicera Borrable",
+        "precio":5350,
+        "imagen":"./assets/img/lapiceraBorrable.webp"
+    },
+    {
+        "id":23,
+        "nombre":"lapicera roller",
+        "precio":2170,
+        "imagen":"./assets/img/lapiceraRoller.webp"
+    },
+    {
+        "id":24,
+        "nombre":"lapicera Roller colores",
+        "precio":3200,
+        "imagen":"./assets/img/lapiceraRollerColor.webp"
+    }
+]
